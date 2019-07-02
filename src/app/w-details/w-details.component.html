@@ -1,0 +1,45 @@
+<form class="example-form">
+  <section >
+      <mat-form-field style="width:400px !important; font-size: .5cm; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"  class="example-full-width">
+          <input matInput placeholder="Enter City" [(ngModel)]="city" [ngModelOptions]="{standalone: true}"><br>
+      </mat-form-field>
+      <br>
+          <button  mat-raised-button style="width:3cm ; font-size: 1.rem !important" color="warn"  (click)="getCity()">Search</button>
+  </section>
+  <br>
+  
+  <section>
+    <mat-card id="weatherCard" class="example-card" [ngClass]="'showDetails'" style="visibility: hidden">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+    </mat-card-header>
+      <mat-card-title class="city">{{city}}&nbsp;,{{this.region }}</mat-card-title>
+      <span class="para_font">{{ this.localtime | date:"EE h:mm a"}} </span> 
+      <br>
+      <br>
+      <br>
+      
+            <div>
+              <img [src]="icon">
+              <br>
+              <span class="temperature-text">{{ this.current_temp}}</span> 
+              <span class="temperature-metric__text">°</span>
+             <span class="condition">{{this.condition}}</span>
+            </div>
+            
+            <br><br>
+            <div>
+              <span class="para_font">Humidity: {{ this.humidity}}%</span>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div>
+              <span class="para_font">{{ this.localtime | date:"MM/dd/yy"}} </span> 
+            </div>
+    </mat-card>
+  </section>
+
+</form>
